@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Filters</title>
+    <style>
+        .img1{
+            filter: blur(3px);
+            /* jitne jada pixles badengai utni hi hmari photo jada blur hogi. */
+        }
+
+        .img2{
+            filter: brightness(100%) contrast(-5.5); 
+            filter: invert(1);
+            /* ye invert() jo hota hai vo photo ko purane ki trah kr deta hai convert or uski maximum value 1 hoti hai */
+            filter: opacity(0.1);
+            /* mai jitna opacity ki value ko km krunga uthni hi hmari image jo hai fade hoti jayegai */
+        } 
+
+        .img3{
+             filter: grayscale(100%);
+             /* ye greyscale() filter black&white mai convert kr deta hai image ko */
+             filter: sepia(100%);
+             /* ye sepia() filter jo hai vo image ko purane jamaze ki photos jaisi bna deta hai */
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="img1" src="https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg?size=626&ext=jpg" alt="">
+        <img class="img2" src="https://c.ndtvimg.com/2023-09/154fgjlg_shah-rukh-khan-_625x300_23_September_23.jpg" alt="">
+        <img class="img3" src="https://images.hindustantimes.com/img/2022/11/12/550x309/akshay_kumar_1659860706633_1668255913307_1668255913307.jpg" alt="">
+    </div>
+</body>
+</html>

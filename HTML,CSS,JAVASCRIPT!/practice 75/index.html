@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks & Promises</title>
+</head>
+<body>
+    <script src="promise.js"></script>
+</body>
+</html>
+
+/*
+Asynchronous JavaScript ka mtlb hota hai:
+"Code ka aisa part jo turant nhi chalta,
+balki baad mein chalta hai jab time mile, bina baki code ko roke."
+
+JavaScript Single-threaded language hai(mtlb)-Ek waqt mein ek kaam karta hai. Asynchronus tareeke se hum wait Karne wale kaam(e.g., file load, server request) ko background mein bhej dete hain.
+
+Real Life Example:
+hm Swiggy se Order Karte hai. 
+Order dene baad hm TV dekhne
+lagte hai - tu wait nhi krega TV dekhega.
+jab pizza aata hai, hm door kholta hai.
+
+Swiggy order = Asynchronous task
+TV dekhna = normal synchronous kaam
+Door bell = callback/promise/async notify.
+
+
+Asynchronous javaScript kyu Use karte hai?
+kya kaam?                 kyu Async zarooori hai?
+----------------------------------------------------
+API request               Network delay hoti hai.
+File read/write           File ka size bada ho skta hai.
+Image/video load          Time lagta hai load hone mai.
+user Interaction          Button click ke baad kuch process
+                          chalu karna hota hai. 
+Timer/interval            Time-based task (e.g., Reminders).
+➡️ Agr ye km sync karte to pura UI freeze ho jata!
+
+Asynchronous javaScript ek aise Technique hai jisme hum aise kaam ko background mein bhejte hain jo time lete hai(like server calls, file load), taaki baaki code rukhe bina chal sake. iske liye hum callbacks,promises, aur async/await ka use karte hain.
+
+Concept             purpose
+--------------------------------------------------------    
+callback            Basic async
+Promise             Chainable & better error handling
+async/await         clean & modern syntax
+
+*/
+
+<script>
+    //Synchronous Code:
+    console.log("1");
+    console.log("2");
+    console.log("3");
+    //Isme sara Code ek ke baad ek turant chalta hai.
+
+    // Asynchronous Code(setTimeout):
+    console.log("1");
+    setTimeout(() => {
+        console.log("2");
+    }, 2000);  // 2 Second ke baad chalega
+    console.log("3");
+    //setTimeOut 2 sec tak wait karega, baaki code turant Execute karega. 
+</script>
+

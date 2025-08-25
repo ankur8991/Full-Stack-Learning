@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox</title>
+    <style>
+        .container {
+            border: 2px solid red;
+            display: flex;
+            /* display flex likhne se hi hm sari property ka use kr skte hai Flexbox ke or display:flex; use krne se .item by default left to right shift ho jate hai ek hi line mai */
+
+            /* flex-direction: column; */
+            /* vese display:flex; se by default left --> right hoti hai ek hi line mai item pr flex-direction: column;likhne se boxes(jo vi content hai) vo bichh m ajata hai or starting se number-wise align hojate hai (column-wise)*/
+
+            /* flex-direction: column-reverse; */
+            /* isse content bich m ajate he orr align hojate hai reverse-wise mtlb ulti line jaise. */
+
+            flex-direction: row;
+            /* flex-direction: row-reverse; */
+            /* ye vi same hi hai column jaise but isme column-wise ki jagha row-wise hojata hai content(or is example ke hisab se boxes). */
+
+            height: 80vh;
+            /* justify-content: center; */
+            /* ye jo justify-content: property hai flex box ki center hai ye horizontal content jo center kr deta hai jaise is example mai pheli line m content ko center krdiya isne boxes ko */
+
+            align-items: center;
+            /* ye jo align-items:center; property hai flex box ki ye vertical boxes ko center kr deti hai jaise is example mai boxes ko container ke ander bilkul bich m ladiya boxes ko */
+
+            /* flex-wrap: wrap; */
+            /*flex-wrap: wrap ka use isliye krte hai jb ek hi row mai jada item ho or vo item bhr nikl rhe ho to isliye
+              vo item bhr n nikle uske niche wali line se continue hone lge tabh use krte hai isse */
+
+            /* align-content: center; */
+            /* iss property ka hm tabh use krte hai jb hmare pss ek se jada line row(ya fir column) mai ho lekin dur-dur unhe center krne ke liye use krte hai */
+
+            /* flex-flow: row wrap; */
+            /* issmai hm dono km ekhi sath kr dete hai jaise phle hme flex-direction: row; btani padii thi alag line mai fir hme btani padii thi flex-wrap: wrap; krdo lekin ismai dono line ka ek hi km krdiya hai */
+
+            /* gap: 30px; */
+            /* jo vi container ke ander item hai uske bich ke gap ko badhanee ke liye ye fir km krne liye(gap ko apni mrji se set krne ke liye) use krte hai */
+
+            /* row-gap: 30px;
+              column-gap: 15px; */
+            /* item mai hi nhi hm isse row/column dono ke hisab se vi set krskte hai gap ko container ke ander jo items ki row ya column hai usmai */
+
+            gap: 30px 15px;
+            /* indono ka combine krskte hai row or column ko sirf 'gap: rowgap  columngap' ye syntax hota hai */
+
+        }
+
+        .item {
+            height: 72px;
+            width: 72px;
+            background-color: blueviolet;
+            border: 2px solid black;
+            /* margin: 4px; */
+            /* flex-grow: 1; */
+        }
+
+        .item1{
+            /* flex-grow: 2; */
+            flex-shrink: 2;
+            align-self: flex-end;
+        }
+
+        .item2{
+            align-self: flex-start;
+        }
+
+
+        /* .order-1 {
+            order: 1;
+        } */
+        /* order property jo hai vo hmari container ke item ke liye lagti hai or iska use jo hai vo ye kheta hai jiski jitni km order value hogi utne hi vo item container ka last m dikhega         */
+
+
+        /* .order-2 {
+            order: 2;
+        } */
+        /* or isse phele uss item ke ander class m likhna hoga jisse hm usse .classkenaam se use kr ske css mai or jisko hm css m order ki value jada dengai uski hi value hme item ki last mai dikhegai or jis item ki jitne value km hogi uski valuee hme phele dikhegai or default order ki value zero(0) set hoti hai */
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1 order-2">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item order-1">4</div>
+        <div class="item"></div>
+        <div class="item item2">6</div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>

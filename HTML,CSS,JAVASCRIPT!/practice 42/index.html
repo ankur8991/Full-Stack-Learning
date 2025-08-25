@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS TransForm</title>
+    <style>
+        .box{
+            width: 55px;
+            height: 55px;
+            border: 2px solid black;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* rotate ka mtlb simple rotate krdo ya fir guhma do x,y,z-aixs pr */
+            /* transform: rotate(55deg); */
+            /* transform: rotate(1.4turn);  0.5---->180degree */
+            /* transform: rotateX(40deg); */
+            /* transform: rotateY(55deg); */
+            /* transform: rotateZ(34deg); */
+
+            /* scale ka mtlb item ko badha doo x-axis ye y,z-axis de according jo vi given ho */
+            /* transform: scalex(2.5); */
+            /* transform: scaleY(3.6); */
+
+            /* skew ka mtlb x-axis ke along  mainai item ko do kono se pakad ke kich diya skew ko hm z-axis se nhi apply kr skte hai*/
+            /* transform: skew(5deg); */
+            /* transform: skewX(4deg); */
+            
+            transform: translate(x , y);
+            /* x--> right/left moves(horizontal). */
+            /* y--> up/down moves(vertically). */
+
+            transform: translate(100px , 50px);
+             /* Box ko 100px right aur 50px down le jaayega */
+
+             transform: translateY(-15px);
+             /* Box ko 100px upar le jaayega (- sign = opposite direction) */
+
+             /* transform-origin: 0% -0%; */
+             /* ye ab origin ke according move krega  */
+
+        }
+
+        .container{
+            width: 100vw;
+            height: 80vh;
+            border: 2px solid purple;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            box
+        </div>
+    </div>
+</body>
+</html>

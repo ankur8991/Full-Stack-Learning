@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+        .container{
+            width: 80vw;
+            height: 100vh;
+            border: 2px solid black;
+            display: grid;
+            /*jaise hm jb display: flex; lagate hai tbh by default
+             hmare container ke ander jo vi item hai vo right to left ley(ek hi line m adjust) hojate hai lekin isme esa kuch nhi hai ye jaise phala tha grid apply krne ke baad vi esa hi hoga */
+            /* grid-template-columns: [pehla] 120px  [dusra] 100px [t]; */
+            /* grid-template-rows: 100px 100px 100px; */
+            /*isse ye pta chalega ki kitne rows and kitne column bnegai*/
+            grid-template-columns: repeat(4 , minmax(100px,1fr));
+            row-gap: 10px;
+            column-gap: 44px;
+            justify-items: center;
+            align-items: center;
+            /* align-items: justify-items: ye cell ke around use hote hai lekin jb hmara container bada ho or items chote ho tabh hm justify-content: or align-contant: ka use krte hai */
+            place-content: center; 
+            /* place-content: ko use krne se hm dono krlete hai justify or align vi    */
+        }
+
+        .item{
+           border: 2px solid red;
+           height: 50px;
+           width: 54px;
+        }
+
+          
+         .item-1{
+            /* grid-row: 1/2;  */
+            /* or we can do this way */
+            /* grid-row-start: 1; */
+            /* grid-row-end: 2; */
+
+            /* grid-column: pehla/t;  */
+        } 
+
+        .item-4{
+            /* grid-row: 1/2; */
+            /* grid-column: 1/2; */
+        }
+        
+
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+     </div>
+</body>
+</html>

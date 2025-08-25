@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Inserting and Removing</title>
+    <style>
+        .red{
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container red bg-green">
+        <div class="box" style="display: flex;" data-createdby="Ankur" data-Conceptby="Harry Bhai" >Hey I am Box</div>
+        <div class="box">Hey I am Box</div>
+    </div>
+    <script>
+        //Insertion ko hm isliye Use krte hai kyuki DOM m bina Page ko reload kre New Data Added hojye(Ya Fir Update hojye Bina usse Reload kre).
+        // let div = document.createElement("div");  // Here we can creates the Element WHich type we can create the Element.
+        // div.innerHTML = "I Have Been Inserted <b>By Ankur</b>"   //Here We Can Writien the Code in Div HTML.
+        // div.setAttribute("class", "created");  
+        // document.querySelector(".container").append(div);  // Here We Can inserted Element Contant in Container bY the using of append And THe new Div ELement Added by Append is Always Inserted At the End(In Html ANd There Text).
+        
+        let cont = document.querySelector(".container")
+        cont.insertAdjacentHTML("beforebegin", "<b> I Am Under The Water. Please Help me Here Too much Raining.... iuuuuuuuoooo</b>")
+    </script>
+</body>
+</html>

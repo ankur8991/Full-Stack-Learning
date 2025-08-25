@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Query</title>
+    <style>
+        body{
+            background-color: lightseagreen;
+        }
+
+
+        @media screen and (orientation: portrait){
+            body{
+                border:42px solid purple;
+            }
+        }
+
+        @media only screen and (max-width: 455px){
+            body{
+                background-color: lightblue;
+            }
+
+            .boxes{
+                flex-direction: column;
+            }
+        }
+
+        /* SYNTAX OF MEDIAQUERY IMPLEMENT--
+         @media not|only mediatype and (expressions) CSS-Code; */
+
+         .boxes{
+            display: flex;
+         }
+
+         .box{
+            width: 344px;
+            height: 344px;
+            background-color: slateblue;
+            padding: 3px;
+            margin: 3px;
+         }
+
+    </style>
+</head>
+<body>
+    <div>
+        Hey I am a red body gyu!
+    </div>
+
+
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

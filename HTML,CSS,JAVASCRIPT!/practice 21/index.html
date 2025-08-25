@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity & cascade</title>
+    <style>
+        h1 {
+            color: aqua;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .cred {
+            color: red;
+        }
+
+        .cpurple {
+            color: purple;
+        }
+
+        /* Attribute Selector */
+        [data-x=a] {
+            background-color: black;
+        }
+
+        /* the specificity of this selector is 1 + 10 + 10 + 10 + 10 = 41 */
+        a.ankurclass.harry-class[href]:hover {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="yellow cred cpurple" data-x="a">CSS Specificity</h1>
+ 
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- PRIORTY OF SELECTORS WHEN ON OR MORE THAN SELECTORS PERFORMS AT A TIME. -->
+<!-- inline style with !important > inline style > ID Selector > Class or Attribute Selector > Element Selector > Universal Selector. -->
+
+<!-- Specificity Calculation -->
+<!-- . Universal Selector: 0
+      . Element Selectors and pseudo-elements: 1
+      . Class-Selectors, attribute selectors, and pseudo-classes: 10
+      . ID selectors: 100
+      . inline styles: 1000 
+
+      -------OR AGR SELECTOR KE ANDER EK OR SELECTOR HAI TO USSE HM SIMPLY ADD KRDENGAI --------
+
+      FOR EXAMPLE:- h1.yellow{color: red;} to isme h1[jo hao vo element seletor hai or] .yellow[jo hai vo class selector hai]
+      indono ko add krdo mtlb inki value ko add krdo ANS=1+10=11.
+      -->
+
+      <!-- The Cascade Algorithm     
+1. Position and order of appearance: the order in which your CSS rules appear
+2. Specificity: an algorithm that determines which CSS selector has the strongest match
+3. Origin: the order in which CSS appears and where it comes from, whether that is a browser style, CSS from a browser extension, or your authored CSS
+4.Importance: some CSS rules are weighted more heavily than others, especially with the !important rule type -->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Overflow property</title>
+    <style>
+
+        .box{
+            border: 4px solid rgb(241, 11, 241);
+            width: 40vw;
+            height: 10vh;
+            overflow: scroll;
+            overflow: auto;
+            /* overflow auto ka mtlb hai ki tumhara likha hua code agr box se bhr ho raha hai tabhi vo scroll bar show krega nhi to nhi krega agr likha hua code box se bhr nhi hora hai. */
+
+            /* white-space: nowrap; */
+            /*white-space: nowrap ka mtlb hai ki hmne jitna vi contant write kiya hai div ya fir kissi vi box ke andr
+             to uss contant ko ek hi line m daal do usse niche mt girne do */
+
+             /* text-overflow: ellipsis; */
+             /* text-overflow: ellipsis is ye km hota hai hmne jitne vi width di hai uske hissab se bss ek line m utne hi contant dikhega or baki ka ..... hoga or scroll krne pr .... ke agge kuch vi nhi dikhega. */
+
+             overflow: clip;
+             /* ye disable kr deta hai scroll bar  */
+
+             overflow-x: hidden;
+             overflow-y: scroll;
+            /*overflow text ko hm separately vi control kr skte hai mtlb x-axis wale ko scroll dena hai ya hidden ese hi y-axis wale ko vi dekhna hai ki usse scroll krna hai ya hidden. */
+            
+            overflow: hidden scroll;
+            /* ye combine hai x or y axis ka mtlb phle wala x-axis ke liye or dusra wala y-axis ke liye. */
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        LET'S WE WRITE SOME ABOUT Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa animi nostrum provident culpa atque, aut facere blanditiis. Aut in repudiandae earum? Dolorem molestias cumque aliquam. Odio quas voluptate doloribus, illum minus, est eaque dolores soluta amet odit exercitationem fuga atque aliquid, molestias maiores ea sit.
+    </div>
+</body>
+</html>

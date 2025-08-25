@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS SELECTORS</title>
+
+    <style>
+        /* Element selector */
+        div{
+            /* background-color: yellow; */
+        }
+       
+          /* Class Selector  */
+        .yellow{
+            background-color: green;
+        }
+       
+        /* Id Selector */
+        #purple{
+            background-color: purple;
+        }
+
+        /* Child Selector */
+        div > p{
+            color: crimson;
+            background-color: violet;
+        }
+        
+        /* Descendant Selector */
+        div  p{
+            color: crimson;
+            background-color: violet;  
+        }
+       
+        /* Universal Selector */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pseudo Selector */
+        a:visited{
+            color: cadetblue;
+        }
+
+        a:link{
+         color: black;
+             } 
+
+        a:active{
+            background-color: blueviolet;
+        } 
+        
+        a:hover{
+            background-color: green;
+        }
+
+        p:first-child{
+            background-color: aquamarine ;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <main class="one">
+      <p>I am First</p>
+      <p>I am Second</p>
+    </main>
+
+    <div class="yellow">
+        I AM A DIV.
+        <article>
+            <p>
+                I AM PARA INSIDE DIV.
+            </p>
+        </article>
+    </div>
+    
+    <div id="purple">
+        I AM ANOTHER DIV.
+    </div>
+
+    <a href="https://www.google.com">Go to Google</a>
+    <a href="https://www.instagram.com">Go to Instagram</a>
+    <a href="https://www.StackoverFlow.com">Go to StackoverFlow</a>
+
+</body>
+</html>

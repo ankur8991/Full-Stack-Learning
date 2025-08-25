@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hacking Simulator</title>
+  <style>
+    body {
+      background-color: green;
+      color: white;
+      font-family: monospace;
+    }
+
+    .text {
+      margin: 10px;
+      font-weight: 400;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <div id="output"></div>     
+  <!-- Ye HTML mein ek khaali box hai jisme messages show honge. -->
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {     // Jab browser pura HTML load kar leta hai (par images/css ka wait nahi karta), tab ye event fire hota hai.
+      const messages = [                   // Sare Hacking message Style ek array mai store kr diye.
+        "Initializing Hacking",
+        "Reading your Files",
+        "Password files Detected",
+        "Sending all passwords and personal files to server",
+        "Cleaning up"
+      ];
+
+      let index = 0;     //🔢 Track karta hai kaunsa message dikh raha hai (0 se start).
+
+      function showNextMessage() {      // Yeh function ek msg ko show krta hai fir khud  ko dobara call krta hai.
+        if (index < messages.length) {
+          const div = document.createElement("div");      // Ye JS se ek naya <div> banata hai ye div ek (message Holder hai).
+          div.className = "text";                         // Ye uss naye create div mai class text dega jisse hm usse target krke css add on kr ske(mtlb styling de ske text mai).
+          document.getElementById("output").appendChild(div);      // Ye us naye <div> ko HTML ke #output box ke andar daal deta hai, jisse message website par dikh jaata hai.
+
+          let baseText = messages[index];       // ✅ 1. baseText[Without dots wala text] ek simple variable hai jisme current message store hota hai — jise hum screen pe dikhana chahte hain.
+                                                // Jaise agar index = 0 ho to: baseText = "Initializing Hacking"  Iske aage hum (. ya .. ya ...)lagake animation banate hain.
+          let dotCount = 0;         // ✅ 2. Ye vi ek variable hai jo btata hai ki kitne dots lagane hai (0-3).
+          let blinking;        //✅ 3. Reference for setInterval (taaki baad me stop kar sake)
+
+          // Start blinking loop
+
+          //setInterval() → ek function ko har 200 milliseconds me call karta hai.
+         //dotCount = (dotCount + 1) % 4 → dot count 0 → 1 → 2 → 3 → 0 repeat karta hai.
+        //div.textContent = baseText + ".".repeat(dotCount) → message ke aage dots lagata hai:
+
+          blinking = setInterval(() => {
+            dotCount = (dotCount + 1) % 4; // 0 to 3 dots
+            div.textContent = baseText + ".".repeat(dotCount);  
+          }, 200); //Blinking speed — 200ms = har 0.2 sec me update
+
+
+
+          // After full wait, stop blinking and fix full message
+
+          // Fir clearInterval() use karke blinking band ki
+          // Final message fix kiya "Reading your Files..."
+          // index++ se agla message ready
+          // 1 second ke delay ke baad showNextMessage() ko call kiya
+
+          setTimeout(() => {
+            clearInterval(blinking);            // Blinking ko band kiya isliye hmne phele isko Initialize kiya
+            div.textContent = baseText + "..."; // Final static message with 3 Dots Fix kiya
+            index++;                            // next message ke liye index badhaya
+            setTimeout(showNextMessage, 100); // Wait then show next yeh line hold krti hai blink hone ke baad 100 milisecond ke baad.
+          }, 3000); // Wait 3 seconds per message before moving on 
+        }
+      }
+
+      showNextMessage();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- baseText = message without dots
+
+setInterval() = fast blinking dots (0.2s)
+
+setTimeout() = 2.5 sec tak blink, fir fix, fir agla message
+
+appendChild() = naye message ko screen pe dikhane ke liye -->
+

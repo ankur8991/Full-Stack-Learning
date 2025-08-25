@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid-2 templates</title>
+</head>
+<style>
+    .container{
+        border: 2px solid black;
+        display: grid;
+        grid-template-areas: "nav nav nav" 
+                             "side article article"
+                             "footer footer footer" ;
+    }
+
+    .item{
+        border: 2px solid blueviolet;
+        height: 55px;
+    }
+
+    .item-1{
+        grid-area: nav;
+        background-color: orange;
+    }
+
+    .item-2{
+          grid-area: side;
+          background-color: rgb(103, 205, 239);
+    }
+
+    .item-3{
+        grid-area: article;
+        background-color: lightcoral;
+    }
+
+    .item-4{
+        grid-area: footer;
+        background-color: lightgreen;
+    }
+
+    .item-5{
+        grid-area: nav;
+    }
+
+</style>
+<body>
+    <img src="Grid-area-templates.png" alt="">
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+    </div>
+</body>
+</html>

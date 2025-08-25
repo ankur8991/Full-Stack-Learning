@@ -1,0 +1,151 @@
+
+
+
+<!-- 🔧 Problem:
+Tu ek e-commerce website pe kaam kar raha hai.
+Tujhe ek function banana hai jo products ke price aur quantity ke basis pe total bill calculate kare.
+
+✅ Kya Banaya Hai?
+Ek complete HTML + JavaScript code, jo:
+
+Ek array of cart items leta hai
+
+Har item ka price × quantity karta hai
+
+Sabka total add karta hai
+
+Aur finally webpage par total amount dikhata hai
+
+
+
+📄 Code Explanation (Step-by-Step)
+🔹 Step 1: Cart Items Array
+js
+Copy
+Edit
+const cart = [
+  { name: "Shoes", price: 1500, quantity: 2 },
+  { name: "T-shirt", price: 500, quantity: 3 },
+  { name: "Watch", price: 2000, quantity: 1 }
+];
+
+🗣️ Yeh array me har product ek object hai.
+Usme name, price, quantity diya gaya hai.
+
+🔹 Step 2: Total Calculate Karne Wala Function
+js
+Copy
+Edit
+function calculateTotal(products) {
+  let total = 0;
+
+  for (let item of products) {
+    total += item.price * item.quantity;
+  }
+
+  return total;
+}
+
+🧠 Kya karta hai?
+
+total ko 0 se start karta hai
+
+Har product ka price × quantity calculate karke total me add karta hai
+
+Final total return karta hai
+
+🔹 Step 3: Function Call + Result Store
+js
+Copy
+Edit
+const totalAmount = calculateTotal(cart);
+📦 Yaha calculateTotal(cart) call karke humne final amount nikala
+Aur totalAmount me store kiya
+
+🔹 Step 4: Result Webpage Pe Dikhaya
+js
+Copy
+Edit
+const outputDiv = document.createElement("div");
+outputDiv.className = "output";
+outputDiv.textContent = "Total Bill: ₹" + totalAmount;
+document.body.appendChild(outputDiv);
+🧾 Yaha humne:
+
+Ek div banaya
+
+Usme text set kiya: Total Bill: ₹6500
+
+Aur HTML body me dikhaya
+
+🧠 Tu Kisi Ko Aise Samjha Sakta Hai:
+"Har product ka price aur quantity hoti hai. Hum un dono ko multiply karke har item ka total nikaalte hain. Sab item ke total ko add karke ek final amount banate hain. Fir us result ko HTML me show kar dete hain." -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart Total</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .output {
+      font-size: 20px;
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 Shopping Cart</h2>
+
+  <script>
+    // Step 1: Cart Items (Array of Products)
+    const cart = [
+      { name: "Shoes", price: 1500, quantity: 2 },
+      { name: "T-shirt", price: 500, quantity: 3 },
+      { name: "Watch", price: 2000, quantity: 1 }
+    ];
+
+    // Step 2: Function to Calculate Total
+    function calculateTotal(products) {
+      let total = 0;
+
+      for (let item of products) {
+        total += item.price * item.quantity;
+      }
+
+      return total;
+    }
+
+    // Step 3: Call function and show output on page
+    const totalAmount = calculateTotal(cart);
+
+    // Step 4: Show result on web page
+    const outputDiv = document.createElement("div");
+    outputDiv.className = "output";
+    outputDiv.textContent = "Total Bill: ₹" + totalAmount;
+    document.body.appendChild(outputDiv);
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+<!-- 
+| Step     | Kya karta hai                                        |
+| -------- | ---------------------------------------------------- |
+| `Step 1` | Cart me items banaye (name, price, quantity)         |
+| `Step 2` | `calculateTotal()` function likha to calculate total |
+| `Step 3` | Function ko call karke totalAmount nikala            |
+| `Step 4` | Ek `div` banaya, usme result dikhaya page pe         | 
+-->

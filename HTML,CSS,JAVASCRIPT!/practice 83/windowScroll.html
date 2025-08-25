@@ -1,0 +1,54 @@
+
+<!-- "Is code me ek button banaya gaya hai jo page ke niche fixed hai. Jab us button pe click karte hain, to JavaScript ka window.scrollTo() function use karke page ko smoothly top pe le jaata hai. behavior: 'smooth' lagane se scroll softly hota hai,instead of fast jhatke se nahi. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smooth Scroll Example</title>
+  <style>
+    body {
+      height: 2000px; /* Scrollable page banane ke liye */
+      font-family: sans-serif;
+    }
+
+    #scrollBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #scrollBtn:hover {
+      background-color: #5379a0;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="scrollBtn">⬆ Scroll to Top</button>
+   <h1>HEy this is way to we can put some text</h1>
+   <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid totam delectus corporis excepturi dicta nam nulla id eum, animi ullam possimus corrupti, illum et ipsam! Labore accusamus nesciunt dolores accusantium fugit quia et animi laboriosam quam commodi dolore eaque ducimus id voluptatibus iste, consequatur eveniet architecto suscipit, tempore cum ea rerum ipsum. Magni molestias vel repellat consectetur neque. Libero molestias cum porro recusandae quo saepe sequi ea dolorem officia velit quos magnam totam, architecto consequatur temporibus dolor. Rerum mollitia suscipit ex, deleniti assumenda alias commodi quis sapiente architecto ut cumque, fuga quo! Ea eius qui adipisci? Minus quod at velit eos, saepe necessitatibus facere nihil modi, impedit architecto harum cum tempora quia.</section>
+  <script>
+    function smoothScrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Jab button click ho to function call ho.
+    document.getElementById("scrollBtn").addEventListener("click", smoothScrollToTop);
+  </script>
+
+
+
+</body>
+</html>
+
