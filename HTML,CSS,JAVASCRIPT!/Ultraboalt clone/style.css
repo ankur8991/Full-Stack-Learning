@@ -1,0 +1,139 @@
+    .logo img{
+        width: 145px;
+    }
+
+    .logo span img{
+        width: 100px;
+        position: relative;
+        right: 68px;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .right ul{
+        display: flex;
+        gap: 35px;
+    }
+
+    .right ul li{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .right ul li img{
+        width: 17px;
+        padding: 4px;
+    }
+
+    .first{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 23px;
+        margin: 34px;
+        font-family: system-ui;
+        
+    }    
+
+    .first span{
+        font-size: 40px;
+    }
+
+    .first span img{
+                width: 68px;
+
+    }
+
+    .first p{
+    font-size: 23px;
+    width: 44vw;
+    text-align: center;
+    }
+
+    .btn{
+    background-color: #00b6d1;
+    padding: 9px 22px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    }
+
+    .btn-green a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .btn-green{
+     background-color: #5cb85c;
+    padding: 9px 22px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+
+    }
+
+    .small{
+        font-size: small;
+    }
+
+    .second{
+        max-width: 47vw;
+        margin: auto;
+    }
+    
+   .item{
+    padding: 22px;
+    background:#f9f9f9;
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: system-ui;
+    text-align: center;
+   }
+
+   .item-lang{
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 36px;
+   }
+
+   .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+   }
+
+   .download:nth-child(1){
+    font-size: 23px;
+   }
+
+   .download img{
+    width: 64px;
+    padding: 0px 12px;
+   }
+
+   /* padding: xpx ypx where x is (top-bottom) and y is (left-right) */
+
+   .download{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: system-ui; 
+   }
+
+   @media  screen and (max-width: 1140px) {
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+   }
