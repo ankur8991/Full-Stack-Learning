@@ -1,0 +1,2 @@
+This is an example file created using Node.js FS moudle.
+ This text is appended to the file.
