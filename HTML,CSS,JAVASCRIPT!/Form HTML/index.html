@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form By HTML only</title>
+</head>
+<body>
+    <label for="usrnme">Name:</label>
+    <input type="text" name="userName" id="usrnme">
+    
+    <br><br>
+   <label for="usrfnme">Father Name:</label>
+    <input type="text" name="userfName" id="usrfnme">
+
+    <br><br>
+   <label for="usrage">Age:</label>
+    <input type="number" name="userAge" id="usrage">
+     
+    <br><br>
+   <label for="usrpass">Password:</label>
+    <input type="password" name="userPassword" id="usrpass">
+
+     <br><br>
+   <input type="radio" name="gender" id="Male" value="male">
+    <label for="Male">Male</label>
+
+    <input type="radio" name="gender" id="Female" value="female">
+    <label for="Female">Female</label>
+
+    <input type="radio" name="gender" id="Other" value="other">
+    <label for="Other">Other</label>
+
+    <br><br>
+    <input type="checkbox" id="c++" value="c++">
+    <label for="c++">C++</label>
+
+    <input type="checkbox" id="javascript" value="javascript">
+    <label for="JavaScript">javascript</label>
+
+    <input type="checkbox" id="go" value="go"> 
+    <label for="go">Go</label>
+
+    <input type="checkbox" id="rust" value="rust">
+    <label for="rust">Rust</label>
+
+    <br><br>
+    <input type="submit">
+</body>
+</html>
+
+<!-- ab man lo koi user aya or usne sara section fill nhi kra to backend ko kese pta hoga ki ye user father ka name hai ye uska name hai isliye hm value name = value ke pair mai bhejte hai.
+to yhi reason hai  <input type="text" name="userName"> isme hmne name = "userName" ese hi sab mai diya hai -->
+<!-- or hmne jo for attribute label tag mai or input tag mai id ka use kra hai vo inko pair mai rkhnne ke liye hai jisse 
+agr mai Name: pr click kru to vo mujhe input tag kee ander bhej de  -->
+<!-- or value ka hmne isliye use kra hai jisse hm backend mai male femal other jb koi ek select kre to usko on ki jagha Male
+agr female hai to ye or other hai to ye  -->
