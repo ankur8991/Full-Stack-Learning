@@ -62,7 +62,9 @@ Sab API hi hote hain → bas unka HTTP method alag hota hai.
 
 
 IMPORTANT --> 
-phle hmne (npm init -y) ye command terminal mai run kri or isse hmare current folder mai ek npm package.json file create ho jayegai jo npm project ko darsata hai or fir hm express pr practice kr rahe hai isliye hmne (npm i express@5) run kri jisse hme npm mai express module mil jye or fir finally hmne (nodemon yourfileName.js/express.js) se apna server run kr diya jisse hm microsoft edge pr jkr localhost:3000 se apne server ko run kr skte hai.
+phle hmne (npm init -y) ye command terminal mai run kri or isse hmare current folder mai ek npm package.json file create ho jayegai jo npm project ka dataset krta hai or fir hm express pr practice kr rahe hai isliye hmne (npm i express@5) run kri jisse hme npm mai express module mil jye or fir finally hmne (nodemon yourfileName.js/express.js) se apna server run kr diya jisse hm microsoft edge/Google chorme 
+jis pr vi tumhara by default pr ho fir uss pr jkr localhost:3000 se apne server ko run kr skte hai jo vi hmne simple get request ko handle ka code likha hoga usse mltb uss get request ka jo vi response 
+mai kra hoga vo hi hme return hokr milega server page pr.
 
 
 
