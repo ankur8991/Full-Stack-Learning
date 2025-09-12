@@ -1,21 +1,20 @@
 🔹 Middleware in Express.js
-middleware hota kya hai?
+   middleware hota kya hai?
 👉 Middleware ek function hota hai jo Express.js ke request-response cycle ke beech me execute hota hai.
 matlab: Jab client request bhejtaa hai → response bhejne se phle tabh ek function beech me run hota hai(jo kuch bhi kar skta hai).
 
 syntax:
-app.use((req, res, next) => {
-    console.log("Middleware chal rha hai");
-    next(); 
-});
+        app.use((req, res, next) => {
+            console.log("Middleware chal rha hai");
+            next(); 
+         });
 
 🔹 2. next() kya hai?
-.  next() ek fucntion hai jo Express ko bolta hai:
-  "Ye middleware ka kaam ho gya, ab agle middleware ya route handler pe jao".✅
+    .  next() ek fucntion hai jo Express ko bolta hai:
+       "Ye middleware ka kaam ho gya, ab agle middleware ya route handler pe jao".✅
 
 Agar Hm next() nahi likhega:
-. Request wahi pe atki rahegi aur browser ko koi response nhi 
-  milega (loading ese hi permanent chalti rahegi ⏳).
+     . Request wahi pe atki rahegi aur browser ko koi response nhi milega (loading ese hi permanent chalti rahegi ⏳).
 
 🔹 Middleware ka kaam
 1. Request aur response ko modify kr skte hai.
@@ -31,44 +30,40 @@ Agar Hm next() nahi likhega:
 
 🔹 Types of Middleware in Express.js
 
-1. APPLICATION-LEVEL MIDDLEWARE:   
-   . Pure app ke liye use hota hai 
+  1. APPLICATION-LEVEL MIDDLEWARE:   
+      . Pure app ke liye use hota hai 
 
-app.use((req, res, next) => {
-    console.log("Time:", Date.now());
-    next();
-});
+              app.use((req, res, next) => {
+                 console.log("Time:", Date.now());
+                 next();
+              });
 
 USE CASE OF THIS CODE EXAMPLE WITH APPLICATION-LEVEL MIDDLEWARE:
 
-. Har request ke liye Express phle is middleware ko chalata hai.
-. Ye middleware terminal (server console) me ek log print karega.
- In Terminal : Time: 1725539012345
+A. Har request ke liye Express phle is middleware ko chalata hai.
+B. Ye middleware terminal (server console) me ek log print karega.
+C. In Terminal : Time: 1725539012345
 
-. Date.now() ek timeStamp deta hai (ms me from 1970 → isko hum 
-  date/clock me convert bhi kr skte hain).
+. Date.now() ek timeStamp deta hai (ms me from 1970 → isko hum date/clock me convert bhi kr skte hain).
 
 🔹 Isse fayda kya hai? (Global middleware ka real use)
 1. Logging requests
    . Tu dekh skta hai ki kaunse time pe kaunsi request aayi thi.
    . Example: debugging ke time helpful.
-   . Agar server hang ho raha hai → check kr skte ho ki kis time 
-     pe zyada requests aayi thi.
+   . Agar server hang ho raha hai → check kr skte ho ki kis time  pe zyada requests aayi thi.
 
 2. Performance monitoring
-   . Start time(Date.now()) aur response bhejne ke time ko 
-     compare karke pata chal jaata hai ki request ko handle karne
-    me kitna time laga.
+   . Start time(Date.now()) aur response bhejne ke time ko compare karke pata chal jaata hai ki request ko handle karne me kitna time laga.
 
 Example Performance monitoring:
-  app.use((req, res, next) => {
-    const start = Date.now();
-    res.on("finish", () => {
-        const end = Date.now();
-        console.log(`${req.method} ${req.url} took ${end - start}ms`);
-    });
-    next();
-  });
+             app.use((req, res, next) => {
+               const start = Date.now();
+               res.on("finish", () => {
+                   const end = Date.now();
+                   console.log(`${req.method} ${req.url} took ${end - start}ms`);
+               });
+               next();
+             });
 
 🔹 A. ${req.method}
 .  Ye batata hai kis HTTP methods se request aayi hai.
@@ -98,8 +93,7 @@ Example Performance monitoring:
 
 
 🔹 D. Combined meaning
-
-Agar browser ne /about pe GET request bheja aur server ne 20 milliseconds me response bheja →
+. Agar browser ne /about pe GET request bheja aur server ne 20 milliseconds me response bheja →
 
 Console output hoga:
 GET /about took 20ms
@@ -124,7 +118,7 @@ Soch tu ek dukaan chalata hai.
 
 👉 Waise hi ye middleware request ke arrival time log kar raha hai.
 
-🔑 Ek line me
+🔑 Ek line me?
 👉 Ye global middleware har request ka time log karta hai → jo debugging, performance check aur monitoring ke liye useful hota hai.
 
 
@@ -201,7 +195,7 @@ app.listen(3000, () => {
 
 🛠 Flow:
 
-. Tu jab http://localhost:3000/users hit karega →
+. Hum jab http://localhost:3000/users hit karega →
 
    . Sabse pehle middleware chalega:
     terminal output: bcoz it written in console.log() Users route middleware.
