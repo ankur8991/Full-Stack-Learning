@@ -19,7 +19,6 @@ app.get('/content/:slug', (req, res) =>{
 })
 
 /*
-//https://github.com/mde/ejs/Wiki/Using-EJS-with-Express isse mai use kr skta hun learning ke liye offical express ki site se hai ye!.
 
 1). ye jo hme contentName , contentText dono variable agr mai duri file se lauu to mai isse kese apne web page pr display krunga mai 
  hamesha hi thodi hi alg file bna kr isme push krunga yah to mai nai ese hi isme ye dono variable manully likh diye hai example ke 
