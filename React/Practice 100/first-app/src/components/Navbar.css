@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(166, 162, 162);
+}
+
+nav, ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+}
+
+ul{
+    gap: 35px;
+}
+
+nav{
+   background-color: burlywood;
+    padding: 15px 30px;
+}
