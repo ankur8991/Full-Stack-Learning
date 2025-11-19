@@ -1,0 +1,37 @@
+body{
+  background-color:  #213547;;
+}
+
+.card{
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container{
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+nav{
+  background-color: #2C3E50;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+li{
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+} 
