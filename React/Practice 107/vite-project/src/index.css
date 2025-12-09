@@ -1,0 +1,30 @@
+nav{
+  display: flex;
+  gap: 35px;
+  background-color: lightpink;
+  padding: 10px 20px;
+}
+
+li{
+  list-style: none;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+a li {
+  text-decoration: none;
+  color: rgb(43, 47, 164);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lightgrey{
+  background-color: lightgrey;
+  color: black  !important;
+}
