@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app</title>
+</head>
+
+<body>
+    <h1>HEllo We are learning Express JS in Socket.io</h1>
+    <input id="msgInput" type="text" placeholder="Enter a message">
+    <button id="sendBtn">Send</button>
+
+    <div id="msgBox" ></div>
+
+    <script src="/socket.io/socket.io.js"></script> <!--isse hmne apne frontend ko connect krvaya hai backend ke socket.io se-->
+    <script>
+        const socket = io();
+
+        const msgInput = document.getElementById("msgInput")
+        const sendBtn = document.getElementById("sendBtn")
+        const msgBox = document.getElementById("msgBox")
+
+        sendBtn.addEventListener('click', () => {
+            socket.emit("messageFromFrontend", msgInput.value)  // send kr rahe hai message ko or send krne ke liye message ko hm emit use krte hai.
+        })
+
+
+        socket.on("messageFromBackend", (MSG) => {
+            const p = document.createElement('p');
+            p.textContent = MSG
+            msgBox.appendChild(p)
+        })
+    </script>
+
+</body>
+
+</html>
