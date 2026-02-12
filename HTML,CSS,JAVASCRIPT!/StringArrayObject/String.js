@@ -177,3 +177,42 @@ let str = "Ankur sikarwar amit"
 console.log(str.split(" ")) // yha pr hm ye bta rahe hai ki hmare string m jo words hai unko " " iss bases pr split krke dedo mujhe.
 console.log(str.split("a"))  // yha pr hm a ke bases pr split kr rahe hai mtlb a jaahn vi hoga hmre string mai usko wha se hata kr a ko uss jagah ko khali krdega or new unn words ko wahi se tod vi dega.
 */
+
+// Question 1
+/*
+let fullname = prompt("Enter your full-Name")
+
+// let username = "@" + fullname + "_" +fullname.length
+let username = `@${fullname.trim().replaceAll(" ", "")}_${fullname.length}`
+console.log(username)
+*/
+
+// Question 2
+/*
+let Userstr = prompt("Enter any string")
+let Userch = prompt("Enter any character")
+
+let count = 0
+// for(let val of Userstr){       // for-of loop hme sirf value deta hai string ho ya fir array.
+//     if(val.toLowerCase() === Userch.toLowerCase()){
+//         count++
+//     }
+// }
+
+
+for(let index in Userstr){           // for-in loop hme index ke saath saath value vi deta hai chahe fir string ho ya fir array.
+    if(Userstr[index].toLowerCase() === Userch.toLowerCase()) {   // tolowercase() isliye lagaya kyuki ye case insensitive m vi km kr ske.
+        console.log("occurence position = ", index)
+       count++
+    }
+}
+
+
+console.log("count = ", count) 
+*/
+
+// Question 3
+/*
+let str = "Hello I am caddy best in coding but not anymore anything"
+console.log(str.split(" ").length)
+*/
