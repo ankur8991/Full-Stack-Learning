@@ -284,3 +284,181 @@ let [ item1, item2, objectvariable ] = arr   // yha pr array mai desturture krte
 
 console.log(item1, item2, objectvariable)
 */
+
+
+// Question - 1
+/*
+let person = {
+    name: "rahul",
+    age: 23,
+    city: "khoda colony"
+}
+
+person.email = "example@gmail.com"
+delete person.city
+
+for (key in person){
+    // console.log(key, ":", obj[key])
+    console.log(`Value of ${key} is ${person[key]}`)
+}
+*/
+
+
+// Question - 2, hme yha pr fullname return krna hai
+/*
+let obj = {
+    firstName: "chandan",
+    middleName: "negi",
+    lastName: "ramola"
+}
+
+let convrtToFullName = (params) => {        // yha pr jo hmne paramater pass kra hai params or isko hmne apne arrow function mai hi call kra diya or hme pta hai iss parameter ka scope iske arrow function tk hi hoga or jb hm isse function ko call krengai tbh jo argument ke form mai hm pass krengai tbh koi vi object jo hmne bna rakhi hai obj naam se vo iss 'params' iss parameter ke andar aajyegai or isse vo hold kr lega paramter uss object ko jo hmne pass kra hai 'params' jo ki hamare case mai ye hai in final baat khau to ye params parameter ke andar hmara pura ka pura object ara hai jo hmne niche arguments ke form mai pass kra hai.
+     return `${params.firstName} ${params.middleName} ${params.lastName}`     // hme pta ahi jb vi hm retrun karate hai tbh hme function ko call karate time ek variable m store karana padega fir uss variable ko console karana padega. 
+}
+
+let fullname = convrtToFullName(obj)
+console.log(fullname)
+*/
+
+
+// Question - 3 , hme object ki keys ki length nikalni hai 
+/*
+let obj = {
+    name: "shivam",
+    age: 23,
+    city: "bulansharan",
+    isMarried: "false"
+}
+
+let NoOfKeys = Object.keys(obj).length    // To hme pta hai Object class ka use karengai or usme keys method se apne manully banye hue object ko pass krdengai kyuki vo fir hme array ke form mai miljyega hmara object fir hm uss array pr '.length' property laga kr uss pure ki length nikal lengai object ke keys ki.
+console.log(NoOfKeys)
+*/
+
+
+// Question - 4 
+/*
+let arr = [
+    {name: "Alice", role: "admin"},
+    {name: "Bob", role: "user"},
+    {name: "charlie", role: "admin"},
+]
+
+
+function filterArray(arr, role){          // ye jo 'arr' parameter pass kra hai hmne vo hm kuch or vi naam le skte kyuki ye function scope tk hi km krega uske bhr ye accessable nhi hoga, agr hm arr ka name yha pr kuch or rakhna chahe to hm rkh skte hai lekin hamare case m fir hmne jo vi arr ke name se filter function andar laga rakhe hai vo sb change krna padega, pr hm code readable likhne ke chakkr mai hm same arr naam hi rakhengai.
+let filteredItem = arr.filter((item)=>{               // ye hamre array mai se item leta hai or return krta hai h pura ka pura item hi.
+    return item.role === role     // yha pr sirf vo hi item pure ke pure return karega jo iss condition ko satisfy krte hai or iss condition ko se match krte h hmare given array mai se, or ek baat ye pura ka pura item hi return krta hai, hmne baad mai role ko as a parameter pss kra hai apne main super function mai code jo readable format mai banane ke liye isliye hmne isse vo hi paramter role ko compare kra hai, or baad mai niche function call krte time role bhej dengai hm konse role ke according hme filter krne hai user.
+})
+
+let finalArray = filteredItem.map(item=>{            // hme pta hai map function sirf array pr lagta hai or agr ek hi parameter agr hm pass kr rahe h to andar ke funtion ka bracket vi hata skte h.
+    return  item.name             // Or hm jo return krte hai vo hi bss vo hi output m hme milta hai chahe fir hm return mai 1 number hi kyu na pass kr rahe h vo hi hme milega sirf print hokr output m pr hmare case m hme sirf jo 'filteredItem' mil raha hai usme se sirf hme name print karana hai output m jo hme 'filteredItem' jo array kr form mai hme admin ka name or role dono de raha hai usme se sirf hme uska name print karana hai, or hme pta hai map function sirf wahi retrun krta hai jo hm return mai pass krte h to hmne item.name return kara diya ab hme name print hokr sirf milega.
+})
+  return finalArray
+
+}
+
+let finalArr = filterArray(arr, 'admin')
+console.log(finalArr)
+*/
+
+
+// Question - 5
+/*
+let products = [
+    { id: 1, name: "iphone 15" },
+    { id: 2, name: "Samsung Galaxy" },
+    { id: 3, name: "Google Pixel" }
+];
+
+function search(products, searchKeyword){
+    let filteredArray = products.filter(Obj=>{
+        return Obj.name.toLowerCase().includes(searchKeyword.toLowerCase())    // object ke name jo hmare products array k andar hai uske name ko compare krengai hm jo hm arguments mai pass krengai function call krte time usse compare krega, ab isme ek problem hai ki hme pura name dena padega pura string pass krna padega same exact isliye hm includes() method ko add krngai compare krne ki jagah jo hme kuch part likhne se vi search hojyega, includes() method krta kya hai actually ye krta hai true false mai evaluate krta hai ki jo hme parameter iske andar pass kra hai vo dekhta hai ki same hai kuch part ya fir nhi agr hai to vo hme dedega true lekin yha pr obj.name se elvaute krega jo parameter uske andar pass krengai hm includs() ke andar, to hm yha pr vohi as a parameter pss krdengai searchkeyword variable se jo hme as a parameter pass kri hai or function call krte time as a arguments pass krengai name product ka.
+    })
+    console.log(filteredArray)
+}
+
+search(products, "ipho")
+*/
+
+
+// Question - 6 ,hme isme ek same postid ke data niklne hai group krke.
+/*
+let comments = [
+    { postId: 1, text: "Very helpful" },
+    { postId: 2, text: "Great post!" },        
+    { postId: 1, text: "Thanks" }        // kisi ne comment kra 'Very helpful' uspr hi ek or comment ka reply krke ek or comment kra hai 'thanks'.
+]
+
+function groupByPost(comments){
+   let groupedComments = {}              // basically we want to converts the whole comments in differnet postid can put in object an array format only same contains postid that's why we can initialize a variable called groupedComments in empty object, Now we can check in lower below code .
+
+   comments.forEach(obj => {                        // we can apply on comments array forEach() loop because of for-each loop cannot change's our original array or also cannot returns any things in our object we can define in the question that works only print / console the data or logic prints /console data here we have comes object by the our initialize variable groupedComments there firstly not have any postid because we can created that an empty object of if conditon false else condition runs there we can create new postid and there values add in the array format now secondly foreach loop runs then again if postid matches our previous postid then we can push otherwise we can create new postid and their postid comments in new array these whole things wrapped into object.   
+    if(groupedComments.hasOwnProperty(obj.postId)){
+        groupedComments[obj.postId].push(obj.text)
+    } else {
+        groupedComments[obj.postId] = [obj.text]
+    }
+   })
+
+   console.log(groupedComments)
+
+}
+
+
+groupByPost(comments)
+*/
+
+
+
+// Question 6 , using destructure
+/*
+let comments = [
+    { postId: 1, text: "Very helpful" },
+    { postId: 2, text: "Great post!" },        
+    { postId: 1, text: "Thanks" }       
+]
+
+function groupByPost(comments){
+   let groupedComments = {}              
+
+   comments.forEach(obj => { 
+    let {postId, text} = obj                          
+    if(groupedComments.hasOwnProperty(postId)){
+        groupedComments[postId].push(text)
+    } else {
+        groupedComments[postId] = [text]
+    }
+   })
+
+   console.log(groupedComments)
+
+}
+
+
+groupByPost(comments)
+*/
+
+
+
+// Question - 7 , we have some key pair values that's we can use and combine that in the manner of URL.
+/*
+let params = {
+    search: "laptop",
+    page: 2,
+    sort: "price"
+}
+
+
+function createUrl(params){
+    //   console.log(`search=${params.search}&page=${params.page}&sort=${params.sort}`)          // there has only one problem if our object has join new key with thier new value so we can add in that manully that's why we can apply loop.
+      let url = ""
+      for(let key in params){
+           url = url + `${key}=${params[key]}&`
+      }
+      let finalurl = url.slice(0, url.length-1)
+      return finalurl
+}
+
+
+let URL = createUrl(params)
+console.log(URL)
+*/
