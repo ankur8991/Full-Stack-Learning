@@ -5,7 +5,7 @@
     color: white;
 }
 
-.grand-parent{
+/* .grand-parent{
     padding: 100px;
     background-color: black;
 }
@@ -22,4 +22,30 @@
     padding: 50px;
     margin: 50px;
     background-color: aquamarine;
+} */
+
+
+.container{
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+    flex-wrap: wrap;
+    padding: 150px;
+}
+
+
+.box{
+    background-color: brown;
+    color: white;
+    font-size: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }

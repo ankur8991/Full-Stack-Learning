@@ -508,3 +508,52 @@ child.addEventListener('click', function(event){
     console.log(event.currentTarget)
 })
 */
+
+
+
+
+/*
+
+Event Delegation? 
+
+Event delegation is a technique in JavaScript where you add an event listener to a parent element instead of adding it to multiple child elements. the parent "delegates" the event handling to its child elements using the bubbling phae of event propagation.
+
+this technique is useful when: 
+   1. You have a large number of child elements that need the same event handler.
+   2. Child elements are dynamically added or removed.
+
+Final line : 
+        Event Delegation is a technique where a single event listener is attached to a parent element to manage events of its child elements using event bubbling and event.target.
+
+*/
+
+// addEventListener click ko enable nhi krta hai click to waise hi hota hai. click to browser ka natural behaviour hai EventListener sirf react krta hai = click create nhi krta hai.
+// Child ko click hone ke liye us par listener lagana zaroori nhi, User kisi vi element pr click kr skta hai. Listener ka kaam sirf itnaa hai: "Agr click mere tk aaye t mai kuch action krunga."
+// hmne yha pr kya kra h hm yha ek parent bana rahe hai conatiner or uske andar 10 boxes hai jo ki apne sequences ke according unke andar number daale hai jaise phla box to number usme daal diya 1 ese hi 10 tk h to hme yha pr kya krna ki jaise hi jonse box pr click kre vese hi uska innerText hme print hokr dikh jye to hmne yha pr container select kr liya fir uske sare child nikal liye childNOdes se fir unsab pr forEach loop laga diya kyuki forEach loop kr andar wale function m hme as parameter m kuch vi pass kre lekin vo laga hai container ke childNodes pr to vo hmne sare child de dega jitne vi h uske andar to hm simple forEach loop ke andar kuch vi naam ka paramter pass krdengai fir ussi naam ka use krke hm like jaise hmne elements diya as a parameter fir usko hi console ke andar uske inner HTML niklne ke liye hm elements.innerText krdengai to hme mil jyega vo sab ke innerHTML lekin ye har box pr lag raha hai addEventListener to isse performance m giratwath hogi mtlb perfomance bekr rahegai hmari isi ko solve krne ke method ko hm Event Delegation bolte hai.
+/*
+let container = document.querySelector('.container')
+
+container.childNodes.forEach((elements)=>{
+    elements.addEventListener('click', ()=>{
+        console.log(elements.innerText)
+    })
+})
+    */
+
+
+// isliye hm event delegation ka use krte hai jo h event propagation ke andar ka event bubbling or ye case 2 h event propagation ka or to hm isse use krengai or isse hme pta hai ki agr child elemnt pr click hua hai to vo bubble up hokr apne se uper wale event ko vi trigger krta hai to hm direct parent pr addEventListener lagengai to vo parent kr sath sath child pr vi click krega to hm condition laga dengai ki event.target se hme pta chaljeeyag ki konse element pr clickk hua h to fir uske hm textcontent dikhadengai if ke andar or if m hm condition dengai ki event.target.className = 'box' to isse vo sirf vo hi element lega jiska naam box h fir hm uska textContent dikha dengai bss itna sa hai isse hmari performance acchi hogi kyuki hm sab pr EventListener nhi lagana padhta hai manully hr box pr.
+// bubbling EventListener pr depend nhi krta hai Bubbling event hone pr depend krta hai, Mtlb Event to hamesha bubble karega (default behaiour) chahe listener child pr ho ya parent pe. Child pe listener ho ya na ho - Event phir bhi bubble karega. listener ka kam hai Agr mere pass event aya, to mai react krunga Event ka travel(bubbling) listener ki wajah se nhi hota ahi Event ka travel browser ka default behaviour hai listener sirf sunne wala hota hai ki m kya react kru Real life example : Ground floor = child, first floor = parent , second floor = GrandParent AB neeche se koi awaaz aati h (click hua). to Wo awaz automatically upar tk jaati h chahe fir koi sun raha ho ya fir nhi ya hi mtlb h event ka event bubble up hokr uper tk jata hai lekin vo developer ke hath m hota h ki uper ane pr vo event ke sath kya km krna h.
+// jaise mn lo click actual m child3 pr hua to Event ka target = child3 Event bubble karega upar bottom to up parent tk pahuchega parent pe listener hai -> run hoga . Event ye nhi dekhta ki listener kahan laga hai Event ka rule simple h : jahan click hua waha se upar jao. or ek baat user jaha click krta hai vo hi event h . to ek question aya ki parent ka listener kyun chala ? kyuki: Event bubble hoke parent tk pahucha Aur parent pe listener laga tha isliye parent react kr gaya. click element pe hota hai. addEventListener sirf reaction setup krta hai.
+// Agr child 3 pr click hua tk seqeuence kuch esa hoga 'child3 → parent → body → html → document'.
+// Event hamesha jahan click hua waha se start hota hai aur bubbling me upar travel krta hai or aur jahan listener milta hai waha code execute hota hai.
+
+/*
+let container = document.querySelector('.container')
+
+container.addEventListener('click', function(event){
+    let targetElem = event.target
+    if(targetElem.classList.contains('box')){
+        console.log(targetElem.textContent)
+    }
+})
+*/
