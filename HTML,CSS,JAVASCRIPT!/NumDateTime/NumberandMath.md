@@ -1,4 +1,4 @@
-# All About Number
+# All About Number in JavaScript
 1) In JavaScript, numbers represents both integer and floating-point values.
 Unlike many other languages, JavaScript has only one number type: Number. No separate types for integers or floatss.
 
@@ -544,3 +544,146 @@ console.log(typeof numbObj.valueOf())    // "number"
 - Primitive numbers me normally direct use nahi karna padta.
 
 ----------------------------------------------------------------------
+
+
+# ABout math in JavaScript
+
+## 1️⃣ Math aaya kaha se?
+JavaScript me kuch built-in global objects hote hain:
+- Object.
+- Array.
+- Number.
+- String.
+- Date.
+- Math.
+- etc.
+
+Ye sab JS engine (V8, SpiderMonkey, etc.) already provide krta hai.
+
+Mtlb:
+
+👉 Jab JS load hota hai.
+
+👉 Ye objects automatically memory me available hote hain.
+
+Hm inko create ya initialize nhi krte hai Engine phe se bana ke deta hai.
+
+-----------------------------------------------------------------------
+
+## 2️⃣ Math internally kya hai?
+Technically:
+- Math ek **built-in-static object** hai mtlb iske kuch method or properties hoengai.
+- Ye constructor nhi hai.
+- Iske andar sirf **static methods aur constants** hote hai.
+
+Conceptually aise socho:
+
+```
+Math = {
+    PI: 3.141592653589793,
+    round(): function() {},
+    floor(): function() {},
+    ceil: function() {},
+    random: function() {},
+    ...
+}
+```
+
+⚠️ Ye real internal code nahi hai
+Bas samajhne ke liye structure hai.
+
+------------------------------------------------------------------------
+
+## 3️⃣ Hum new Math() kyu nahi karte?
+kyuki:
+- ```Math``` constructor nhi hai.
+- Iska purpose object banana nhi.
+- Sirf mathematical utilities dena hai.
+
+Agar hm try kare :
+
+```
+new Math()
+```
+
+👉 Error aayega.
+
+Kyuki Math me constructor behavior hi nhi hai.
+
+------------------------------------------------------------------------
+
+## 4️⃣ Math static object kyu hai?
+Do treeke hote hain design ke:
+
+#### 🟢 Instance based (like Array)
+
+```
+let arr = new Array()
+```
+Yaha har array ka apna data hota hai.
+
+-----------------------------------------------------------------------
+
+#### 🔵 Static utility object (like Math)
+Math kisi specific data pe kaam nhi krta.
+
+Example: 
+```
+Math.sqrt(25)
+```
+
+Yaha koi internal state nhi hai.
+
+Bas input lo → output do.
+
+Isliye:
+
+👉 Iska instance banana pointless hota hai.
+
+👉 Isliye direct static methods use hote hain.
+
+------------------------------------------------------------------------
+
+## 5️⃣ Direct use karne se kya behaviour milta hai?
+Jab hm likhte hai:
+
+```
+Math.round(4.6)
+```
+
+Engine:
+1. Global scope me Math object dekhta hai.
+2. Usme round method call krta hai.
+3. Result return krta hai.
+
+Koi object creation nhi hota koi memory waste nhi hoti Bas direct calculation hoti hai.
+
+Efficient + Fast.
+
+------------------------------------------------------------------------
+
+##  6️⃣ Math vs Number difference
+
+| Math                     | Number                               |
+| ------------------------ | ------------------------------------ |
+| Static object            | Constructor + static object          |
+| Instance nahi bana sakte | Instance bana sakte (`new Number()`) |
+| Sirf calculations        | Type + conversion + formatting       |
+
+------------------------------------------------------------------------
+
+## Math Methods
+
+## Math Methods
+
+| Method              | Description                                                | Example | Output |
+|---------------------|------------------------------------------------------------|---------|--------|
+| Math.round(x)       | Number ko nearest integer me round karta hai              | Math.round(4.6) | 5 |
+| Math.floor(x)       | Number ko niche wale integer tak round karta hai          | Math.floor(4.9) | 4 |
+| Math.ceil(x)        | Number ko upar wale integer tak round karta hai           | Math.ceil(4.1) | 5 |
+| Math.abs(x)         | Absolute (positive) value return karta hai                | Math.abs(-10) | 10 |
+| Math.sqrt(x)        | Square root nikalta hai                                   | Math.sqrt(25) | 5 |
+| Math.pow(x, y)      | x ki power y return karta hai                             | Math.pow(2, 3) | 8 |
+| Math.min(...args)   | Multiple numbers me se smallest number return karta hai   | Math.min(3,1,7) | 1 |
+| Math.max(...args)   | Multiple numbers me se largest number return karta hai    | Math.max(3,1,7) | 7 |
+| Math.random()       | 0 (inclusive) aur 1 (exclusive) ke beech random number deta hai | Math.random() | 0.534... |
