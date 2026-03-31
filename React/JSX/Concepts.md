@@ -506,3 +506,148 @@ Kabhi:
 - Babel transpile karta hai JSX → JS
 - Bundler (Vite/Webpack) files combine karta hai
 - Browser ka engine (V8) internally compile + execute karta hai
+
+
+### Some Questions.
+
+1) What is JSX?
+
+JSX is a syntax extention for JavScript used in React. It lets you write HTML-like code inside JavaScript. many website cliam that JSX stands for JavaScript XML but React official documenttaion refers to JSX as a"syntax extention for JavaScript" or "an XML-like extention to the JavaScript language".
+
+2) Transpilation v/s Compailation?
+
+Transpilation: Converting code from one version of a language to another (like JSX to JS, or ES6 to ES5).
+Compilation: Converting human-readable code into optimized, often lower-level code (e.g., bundling, minifying).
+
+3) What is Babel?
+
+A JavaScript transpiler that transforms modern JS/JSX into a form that browser can understanable (usually older JavaScript).
+
+Explanation :
+
+**👉 Babel = JavaScript compiler / transpiler**
+
+Iska kaam:
+- Modern JavaScript ko old compatible JS me convert krna.
+- JSX ko normal JS me convert krna.
+
+Simple line:
+**Jo code browser nhi samajhta, Babel usko browser-friendly bana deta hai.**
+
+**🔹 React me Babel exactly kya karta hai?**
+
+hm likhte hai:
+```js
+const element = <h1>Hello</h1>
+```
+
+Browser isko directly nhi samajhta ❌
+
+Babel isko convert krta hai:
+```js
+const element = React.createElement("h1", null, "Hello")
+```
+
+Ye browser samajh leta hai ✅
+
+Matlab Babel ka kaam React banana nahi hai, bas:
+
+- 👉 JSX syntax ko plain JS me convert karna
+- 👉 new JS syntax ko old browsers compatible banana
+
+
+**🔹 Sirf JSX hi nahi**
+
+Babel ye bhi convert krta hai:
+
+🔸 Arrow functions
+
+```js
+const add = (a, b) => a + b
+```
+
+👇
+```js
+var add = function(a, b) {
+  return a + b
+}
+```
+
+**🔸 Destructuring**
+
+```js
+const { name } = user
+```
+
+👇 older syntax me
+
+```js
+var name = user.name
+```
+
+**🔹 React + Vite me Babel dikhta kyun nahi?**
+
+Kyuki Vite internally ye sab handle krta hai.
+
+Tu manually Babel config nhi likhta, but behind the secenes:
+- Babel / esbuild / SWC transforms.
+- JSX parse.
+- fast hot reload.
+
+**Babel React me JSX aur modern JS ko browser-friendly JavaScript me convert karta hai**
+
+4) What Happens with JSX behind the scene?
+
+**Babel Transpiles JSX --> ```React.createElement```**
+
+Babel plugin (@babel/preset-react) converts JSX syntax into pure JS. This is transpilation because JSX is just syntactic sugar for function calls, not a new language.
+
+Example :
+
+**In JSX :**
+
+```jsx
+<h1 style={{backgroundColor: 'blue'}} >Hello how are you</h1>
+```
+Convert into the Browser understandable form like these syntax they follow thier  rule : ```React.createElement(tag, props, childrens)```
+
+here : tag like html all tags div, h1, etc. and props like html says attributes like style={{backgroundColor: 'blue'}}, ClassName, etc. and children what we can write inside the actual text.
+
+```js
+React.createElement(h1, style={{backgroundColor: 'blue'}}, 'Hello how are you')
+```
+
+**Babel Transpiles ES6+ --> ES5**
+
+If you used modern JS features, Babel also converts that into older JavaScript for compatibility.
+
+**Bundler Compilation (Webpack, Vite, etc.)**
+
+The transpiled files are bundled into a single/minified JS file. This step is closer to compilation since your project is being turned into somthing executable by the browser.
+
+**Browser Execution**
+
+React.createElement creates virtual DOM objects. React reconciler diffs them. React DOM updates the real DOM.
+
+
+5) Why we use double curly braces in style attribute?
+
+Since JSX inline style is an object not a string. the first pair indicates you are embedding a JavaScript expression inside JSX. The second pair is the object itself.
+
+6) Why we need to use ClassName, htmlFor instead of class and for in JSX?
+
+Since, JSX is ultimately compiled into JavaScript, and we all know that "class" and "for" are reserved keywords in JavaScript. So it would create naming conflicts and leads to errors when the JSX compiled into JavaScript. That is why className & htmlFor is used as an alternative to avoid conflicts.
+
+7) className is attribute or props in JSX?
+
+className looks like an HTML attribute because we write it inside a tag. But under the hood, JSX is just JavaScript. When Babel transpiles this, it becomes:
+
+```React.createElement("h1", { className: "title" }, "Hello");```
+
+so, className in JSX is a prop, not a raw attribute. But React uses it to set the actual HTML attribute class on the DOM element.
+
+8) JSX doesn't support loop like 'for', but we can use 'map'. Why?
+
+"for" is a statement, produces no value ----> JSX can't directly use it.
+
+"map" is an expression, produces an array of elements ----> JSX can render it because they can returns the values.
